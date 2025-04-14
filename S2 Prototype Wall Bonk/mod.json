@@ -1,1 +1,11 @@
-
+{
+	"Metadata":
+	{
+		"Name": "S2 Prototype Wall Bonk",
+		"Author": "Morgan Reiss",
+		"Description": "This adds in the wall bonk from Sonic 2 Prototype.",
+		"URL": "",
+		"ModVersion": "1.0",
+		"GameVersion": "1"
+	}
+}
