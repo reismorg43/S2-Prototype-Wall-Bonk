@@ -1,1 +1,46 @@
+global s16 timeranim
 
+function void Standalone.onRestartAtCheckpoint()
+{
+  timeranim = 0
+
+    // Handle achievements
+    Game.setAchievementValue(ACHIEVEMENT_MGZ_GIANTRINGS, 0)
+    Game.setAchievementValue(ACHIEVEMENT_FBZ_FREE_ANIMALS, 0)
+}
+
+function u64 stringformat(u64 format, u64 arg1)
+{
+     if (format == "character_sonic_0x%02x") 
+     {
+            if (char.state != char.state.STANDING)
+            {
+                timeranim = 0
+            }
+            if (timeranim >= 60)
+            {
+                timeranim = 31
+            }
+            if (arg1 == 0xba)
+            {
+                timeranim = 0
+            }
+            if (global.level_started)
+            {    
+                if (char.state == char.state.STANDING)
+                {
+                    ++timeranim                
+                    if (timeranim > 0) && (timeranim <= 30)
+                    {
+                        format = "sonic_wallbonk_%d"
+                        arg1 = (level.framecounter >> 2) % 30
+                    }
+                    if (timeranim > 30) && (timeranim <= 60)
+                    {
+                        format = "sonic_wallbonk2_0"
+                    }
+                }
+            }
+  }
+    return base.stringformat(format, arg1)
+}
