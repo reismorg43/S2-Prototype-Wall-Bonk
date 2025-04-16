@@ -19,7 +19,7 @@ function u64 stringformat(u64 format, u64 arg1)
             }
             if (timeranim >= 60)
             {
-                timeranim = 31
+                timeranim = 11
             }
             if (arg1 == 0xba)
             {
@@ -30,12 +30,12 @@ function u64 stringformat(u64 format, u64 arg1)
                 if (char.state == char.state.STANDING)
                 {
                     ++timeranim                
-                    if (timeranim > 0) && (timeranim <= 30)
+                    if (timeranim > 0) && (timeranim <= 10)
                     {
                         format = "sonic_wallbonk_%d"
-                        arg1 = (level.framecounter >> 2) % 30
+                        arg1 = (level.framecounter >> 4) % 30
                     }
-                    if (timeranim > 30) && (timeranim <= 60)
+                    if (timeranim > 10) && (timeranim <= 60)
                     {
                         format = "sonic_wallbonk2_0"
                     }
